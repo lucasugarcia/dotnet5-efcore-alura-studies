@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using FilmesApi.Data;
+using FilmesAPI.Data;
 using FilmesAPI.Data.Dtos;
 using FilmesAPI.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -26,7 +26,7 @@ namespace FilmesAPI.Controllers
   
 
         [HttpPost]
-        public IActionResult AdicionaCinema([FromBody] CreateCinemaDto cinemaDto)
+        public IActionResult AdicionaCinema([FromBody] CreateEnderecoDto cinemaDto)
         {
             Cinema cinema = _mapper.Map<Cinema>(cinemaDto);
             _context.Cinemas.Add(cinema);
@@ -46,14 +46,14 @@ namespace FilmesAPI.Controllers
             Cinema cinema = _context.Cinemas.FirstOrDefault(cinema => cinema.Id == id);
             if(cinema != null)
             {
-                ReadCinemaDto cinemaDto = _mapper.Map<ReadCinemaDto>(cinema);
+                ReadEnderecoDto cinemaDto = _mapper.Map<ReadEnderecoDto>(cinema);
                 return Ok(cinemaDto);
             }
             return NotFound();
         }
 
         [HttpPut("{id}")]
-        public IActionResult AtualizaCinema(int id, [FromBody] UpdateCinemaDto cinemaDto)
+        public IActionResult AtualizaCinema(int id, [FromBody] UpdateEnderecoDto cinemaDto)
         {
             Cinema cinema = _context.Cinemas.FirstOrDefault(cinema => cinema.Id == id);
             if(cinema == null)

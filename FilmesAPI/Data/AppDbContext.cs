@@ -1,7 +1,7 @@
 ﻿using FilmesAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace FilmesApi.Data
+namespace FilmesAPI.Data
 {
     public class AppDbContext : DbContext
     {
@@ -12,5 +12,7 @@ namespace FilmesApi.Data
 
         public DbSet<Filme> Filmes { get; set; }
         public DbSet<Cinema> Cinemas { get; set; }
+        public DbSet<Endereco> Enderecos { get; set; }
     }
+
 }
