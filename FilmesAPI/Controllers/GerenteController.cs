@@ -23,7 +23,8 @@ namespace FilmesAPI.Controllers
             _mapper = mapper;
         }
 
-        public IActionResult AdcionaGerente(CreateGerenteDto gerenteDto)
+        [HttpPost]
+        public IActionResult AdicionaGerente(CreateGerenteDto gerenteDto)
         {
             var gerente = _mapper.Map<Gerente>(gerenteDto);
 
@@ -33,6 +34,7 @@ namespace FilmesAPI.Controllers
             return CreatedAtAction(nameof(RecuperarGerentePorId), new { Id = gerente.Id }, gerente);
         }
 
+        [HttpGet("{id}")]
         public IActionResult RecuperarGerentePorId(int id)
         {
             var gerente = _context.Gerentes.FirstOrDefault(g => g.Id == id);
