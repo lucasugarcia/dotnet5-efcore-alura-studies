@@ -13,8 +13,8 @@ namespace FilmesAPI.Data.Dtos
         [Key]
         [Required]
         public int Id { get; set; }
-        [Required(ErrorMessage = "O campo de nome é obrigatório")]
-        public string Nome { get; set; }
-        public object Endereco { get; set; }
+        public string Logradouro { get; set; }
+        public string Bairro { get; set; }
+        public int Numero { get; set; }
     }
 }

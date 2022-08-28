@@ -42,7 +42,7 @@ namespace FilmesAPI.Controllers
         [HttpGet("{id}")]
         public IActionResult RecuperarEnderecoPorId(int id)
         {
-            var endereco = _context.Enderecos.FirstOrDefault(f => f.Id == id);
+            var endereco = _context.Enderecos.FirstOrDefault(e => e.Id == id);
 
             if (endereco == null)
                 return NotFound();
